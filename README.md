@@ -13,16 +13,16 @@ To use an LRUMap with larger max size:
         LRUMap<Object, JavaType> cache = new LRUMap(4, 1000);
         TypeFactory tf = TypeFactory.defaultInstance().withCache(cache);
         ObjectMapper mapper = new ObjectMapper();
-        //ObjectMapper mapper = JsonMapper.builder().build();
         mapper.setTypeFactory(tf);
+        //or ObjectMapper mapper = JsonMapper.builder().typeFactory(tf).build();
 
 To use this [Caffeine](https://github.com/ben-manes/caffeine) based cache:
 
         CaffeineLookupCache<Object, JavaType> cache = new CaffeineLookupCache(1000);
         TypeFactory tf = TypeFactory.defaultInstance().withCache(cache);
         ObjectMapper mapper = new ObjectMapper();
-        //ObjectMapper mapper = JsonMapper.builder().build();
         mapper.setTypeFactory(tf);
+        //or ObjectMapper mapper = JsonMapper.builder().typeFactory(tf).build();
         
 # Jackson 2.11
 
@@ -34,7 +34,7 @@ jackson-caffeine-cache 1.1.0 was refactored to take advantage of a change in Jac
 
 CaffeineLookupCache will still work with TypeFactory, as above. Some Jackson APIs still require an LRUMap. If you want to use a Caffeine-based cache instead of a LRUMap, there is a new CaffeineLRUMap.
 
-# Jackson-Modile-Scala 2.12.2 and above
+# Jackson-Module-Scala 2.12.2 and above
 
 After the v2.12.2 release, it will be possible to replace the default LRUMap descriptorCache.
 
