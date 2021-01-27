@@ -1,12 +1,12 @@
 package com.github.pjfanning.jackson;
 
-import com.fasterxml.jackson.databind.util.LRUMap;
+import com.fasterxml.jackson.databind.util.SimpleLookupCache;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 
 import java.util.concurrent.ConcurrentMap;
 
-public class CaffeineLRUMap<K, V> extends LRUMap<K, V> {
+public class CaffeineLRUMap<K, V> extends SimpleLookupCache<K, V> {
 
     private final ConcurrentMap<K, V> cache;
     private final int maxEntries;
